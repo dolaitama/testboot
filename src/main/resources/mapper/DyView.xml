@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DyViewMapper">
+	<!-- DyView管理 start -->
+	<resultMap id="BaseResultMap" type="DyView">
+		<result column="id" property="id" />
+		<result column="defcol" property="defcol" />
+		<result column="querydef" property="querydef" />
+		<result column="defsql" property="defsql" />
+		<result column="defjs" property="defjs" />
+		<result column="expinfo" property="expinfo" />
+		<result column="optionsetter" property="optionsetter" />
+		<result column="type" property="type" />
+		<result column="eoption" property="eoption" />
+		<result column="model" property="model" />
+	</resultMap>
+
+	<insert id="insert" parameterType="DyView">
+		insert into tf_s_dy_view(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="defcol != null">
+				defcol,
+			</if>
+			<if test="querydef != null">
+				querydef,
+			</if>
+			<if test="defsql != null">
+				defsql,
+			</if>
+			<if test="defjs != null">
+				defjs,
+			</if>
+			<if test="expinfo != null">
+				expinfo,
+			</if>
+			<if test="optionsetter != null">
+				optionsetter,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="eoption != null">
+				eoption,
+			</if>
+			<if test="model != null">
+				model,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="defcol != null">
+				#{defcol},
+			</if>
+			<if test="querydef != null">
+				#{querydef},
+			</if>
+			<if test="defsql != null">
+				#{defsql},
+			</if>
+			<if test="defjs != null">
+				#{defjs},
+			</if>
+			<if test="expinfo != null">
+				#{expinfo},
+			</if>
+			<if test="optionsetter != null">
+				#{optionsetter},
+			</if>
+			<if test="type != null">
+				#{type},
+			</if>
+			<if test="eoption != null">
+				#{eoption},
+			</if>
+			<if test="model != null">
+				#{model},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="DyView">
+		delete from tf_s_dy_view
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="defcol != null">
+				and defcol = #{defcol}
+			</if>
+			<if test="querydef != null">
+				and querydef = #{querydef}
+			</if>
+			<if test="defsql != null">
+				and defsql = #{defsql}
+			</if>
+			<if test="defjs != null">
+				and defjs = #{defjs}
+			</if>
+			<if test="expinfo != null">
+				and expinfo = #{expinfo}
+			</if>
+			<if test="optionsetter != null">
+				and optionsetter = #{optionsetter}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="eoption != null">
+				and eoption = #{eoption}
+			</if>
+			<if test="model != null">
+				and model = #{model}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="DyView">
+		update tf_s_dy_view
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="defcol != null">
+				defcol = #{defcol},
+			</if>
+			<if test="querydef != null">
+				querydef = #{querydef},
+			</if>
+			<if test="defsql != null">
+				defsql = #{defsql},
+			</if>
+			<if test="defjs != null">
+				defjs = #{defjs},
+			</if>
+			<if test="expinfo != null">
+				expinfo = #{expinfo},
+			</if>
+			<if test="optionsetter != null">
+				optionsetter = #{optionsetter},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="eoption != null">
+				eoption = #{eoption},
+			</if>
+			<if test="model != null">
+				model = #{model},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_dy_view
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="defcol != null">
+				and defcol = #{defcol}
+			</if>
+			<if test="querydef != null">
+				and querydef = #{querydef}
+			</if>
+			<if test="defsql != null">
+				and defsql = #{defsql}
+			</if>
+			<if test="defjs != null">
+				and defjs = #{defjs}
+			</if>
+			<if test="expinfo != null">
+				and expinfo = #{expinfo}
+			</if>
+			<if test="optionsetter != null">
+				and optionsetter = #{optionsetter}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="eoption != null">
+				and eoption = #{eoption}
+			</if>
+			<if test="model != null">
+				and model = #{model}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_dy_view
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="defcol != null">
+				and defcol = #{defcol}
+			</if>
+			<if test="querydef != null">
+				and querydef = #{querydef}
+			</if>
+			<if test="defsql != null">
+				and defsql = #{defsql}
+			</if>
+			<if test="defjs != null">
+				and defjs = #{defjs}
+			</if>
+			<if test="expinfo != null">
+				and expinfo = #{expinfo}
+			</if>
+			<if test="optionsetter != null">
+				and optionsetter = #{optionsetter}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="eoption != null">
+				and eoption = #{eoption}
+			</if>
+			<if test="model != null">
+				and model = #{model}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_dy_view
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="defcol != null">
+				and defcol = #{defcol}
+			</if>
+			<if test="querydef != null">
+				and querydef = #{querydef}
+			</if>
+			<if test="defsql != null">
+				and defsql = #{defsql}
+			</if>
+			<if test="defjs != null">
+				and defjs = #{defjs}
+			</if>
+			<if test="expinfo != null">
+				and expinfo = #{expinfo}
+			</if>
+			<if test="optionsetter != null">
+				and optionsetter = #{optionsetter}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="eoption != null">
+				and eoption = #{eoption}
+			</if>
+			<if test="model != null">
+				and model = #{model}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_dy_view
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="defcol != null">
+				and defcol = #{defcol}
+			</if>
+			<if test="querydef != null">
+				and querydef = #{querydef}
+			</if>
+			<if test="defsql != null">
+				and defsql = #{defsql}
+			</if>
+			<if test="defjs != null">
+				and defjs = #{defjs}
+			</if>
+			<if test="expinfo != null">
+				and expinfo = #{expinfo}
+			</if>
+			<if test="optionsetter != null">
+				and optionsetter = #{optionsetter}
+			</if>
+			<if test="type != null">
+				and type = #{type}
+			</if>
+			<if test="eoption != null">
+				and eoption = #{eoption}
+			</if>
+			<if test="model != null">
+				and model = #{model}
+			</if>
+		</trim>
+	</select>
+
+	<select id="count" parameterType="map" resultType="long">
+		${sql}
+	</select>
+
+	<select id="excuteQuery" parameterType="map" resultType="map">
+		${sql}
+	</select>
+
+	<delete id="deleteByMenuId">
+		delete from tf_s_dy_view where id = (select dyviewid from tf_s_sysmenu where
+		id=#{id})
+	</delete>
+
+	<!-- DyView管理 end -->
+</mapper>

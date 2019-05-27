@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StaffMapper">
+	<!-- Staff管理 start -->
+	<resultMap id="BaseResultMap" type="Staff">
+		<result column="id" property="id" />
+		<result column="loginname" property="loginname" />
+		<result column="loginpwd" property="loginpwd" />
+		<result column="name" property="name" />
+		<result column="sex" property="sex" />
+		<result column="tel" property="tel" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Staff">
+		insert into tf_s_staff(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="loginname != null">
+				loginname,
+			</if>
+			<if test="loginpwd != null">
+				loginpwd,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="tel != null">
+				tel,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="updatetime != null">
+				updatetime,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="loginname != null">
+				#{loginname},
+			</if>
+			<if test="loginpwd != null">
+				#{loginpwd},
+			</if>
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="sex != null">
+				#{sex},
+			</if>
+			<if test="tel != null">
+				#{tel},
+			</if>
+			<if test="remark != null">
+				#{remark},
+			</if>
+			<if test="status != null">
+				#{status},
+			</if>
+			<if test="createtime != null">
+				#{createtime},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="Staff">
+		delete from tf_s_staff
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="loginname != null">
+				and loginname = #{loginname}
+			</if>
+			<if test="loginpwd != null">
+				and loginpwd = #{loginpwd}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="sex != null">
+				and sex = #{sex}
+			</if>
+			<if test="tel != null">
+				and tel = #{tel}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="createtime != null">
+				and createtime = #{createtime}
+			</if>
+			<if test="updatetime != null">
+				and updatetime = #{updatetime}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="Staff">
+		update tf_s_staff
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="loginname != null">
+				loginname = #{loginname},
+			</if>
+			<if test="loginpwd != null">
+				loginpwd = #{loginpwd},
+			</if>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="sex != null">
+				sex = #{sex},
+			</if>
+			<if test="tel != null">
+				tel = #{tel},
+			</if>
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime},
+			</if>
+			<if test="updatetime != null">
+				updatetime = #{updatetime},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_staff
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="loginname != null">
+				and loginname = #{loginname}
+			</if>
+			<if test="loginpwd != null">
+				and loginpwd = #{loginpwd}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="sex != null">
+				and sex = #{sex}
+			</if>
+			<if test="tel != null">
+				and tel = #{tel}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="createtime != null">
+				and createtime = #{createtime}
+			</if>
+			<if test="updatetime != null">
+				and updatetime = #{updatetime}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_staff
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="loginname != null">
+				and loginname = #{loginname}
+			</if>
+			<if test="loginpwd != null">
+				and loginpwd = #{loginpwd}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="sex != null">
+				and sex = #{sex}
+			</if>
+			<if test="tel != null">
+				and tel = #{tel}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="createtime != null">
+				and createtime = #{createtime}
+			</if>
+			<if test="updatetime != null">
+				and updatetime = #{updatetime}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_staff
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="loginname != null">
+				and loginname = #{loginname}
+			</if>
+			<if test="loginpwd != null">
+				and loginpwd = #{loginpwd}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="sex != null">
+				and sex = #{sex}
+			</if>
+			<if test="tel != null">
+				and tel = #{tel}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="createtime != null">
+				and createtime = #{createtime}
+			</if>
+			<if test="updatetime != null">
+				and updatetime = #{updatetime}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_staff
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="loginname != null">
+				and loginname = #{loginname}
+			</if>
+			<if test="loginpwd != null">
+				and loginpwd = #{loginpwd}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="sex != null">
+				and sex = #{sex}
+			</if>
+			<if test="tel != null">
+				and tel = #{tel}
+			</if>
+			<if test="remark != null">
+				and remark = #{remark}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="createtime != null">
+				and createtime = #{createtime}
+			</if>
+			<if test="updatetime != null">
+				and updatetime = #{updatetime}
+			</if>
+		</trim>
+	</select>
+
+	<!-- Staff管理 end -->
+</mapper>

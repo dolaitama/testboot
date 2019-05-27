@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RoleRightMapper">
+	<!-- RoleRight管理 start -->
+	<resultMap id="BaseResultMap" type="RoleRight">
+		<result column="id" property="id" />
+		<result column="roleid" property="roleid" />
+		<result column="rightcode" property="rightcode" />
+		<association property="sysright" column="rightcode" javaType="Sysright" select="selectSysright">
+		</association>
+	</resultMap>
+	
+	<select id="selectSysright" resultType="Sysright">
+		select * from tf_s_sysright where rightcode=#{rightcode}
+	</select>
+
+	<insert id="insert" parameterType="RoleRight">
+		insert into tf_s_role_right(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="roleid != null">
+				roleid,
+			</if>
+			<if test="rightcode != null">
+				rightcode,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="roleid != null">
+				#{roleid},
+			</if>
+			<if test="rightcode != null">
+				#{rightcode},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="RoleRight">
+		delete from tf_s_role_right
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="RoleRight">
+		update tf_s_role_right
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="roleid != null">
+				roleid = #{roleid},
+			</if>
+			<if test="rightcode != null">
+				rightcode = #{rightcode},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_role_right
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_role_right
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_role_right
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_role_right
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+		</trim>
+	</select>
+	
+	<select id="findRoleRightListByStaffId" resultMap="BaseResultMap">
+      select distinct rr.* from tf_s_role_right rr
+      left join tf_s_staff_role sr on sr.roleid = rr.roleid
+      where sr.staffid=#{id}
+  </select>
+
+	<!-- RoleRight管理 end -->
+</mapper>

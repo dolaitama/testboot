@@ -1,0 +1,18 @@
+image_savepath: D://programfiles/Tomcat7.0/webapps/images_cus/
+th_exp_default: true
+menu_prefix: /list/toRptIndex?id=
+spring:
+  datasource:
+    url: jdbc:mysql://47.244.44.2:3306/test?characterEncoding=utf8
+    username: root
+    password: -7mrlwrmCtGe
+  mvc:
+    static-path-pattern: /static/**
+  freemarker:
+    request-context-attribute: request
+    session-context-attribute: session
+    settings:
+      number_format: 0.##
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sugon.domain

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engine>
+    <database url="jdbc:mysql://47.244.44.2:3306/test?characterEncoding=utf8" 
+        username="root" 
+        password="-7mrlwrmCtGe"
+        dialect="mysql" 
+        database="test" 
+        modelName="tf_s_">
+        <modelNames>
+            <modelName>tf_s_</modelName>
+        </modelNames>
+        <table name="tf_s_right_param" desc="权限参数"/>
+    </database>
+    <javaFile 
+        javaPath="java" 
+        resourcePath="resources"
+        path="com.sugon"
+        controllerPath="controller" 
+        entityPath="domain" 
+        servicePath="service"
+        xmlPath="mapper"/>
+</engine>

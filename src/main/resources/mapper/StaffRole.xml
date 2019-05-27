@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StaffRoleMapper">
+	<!-- StaffRole管理 start -->
+	<resultMap id="BaseResultMap" type="StaffRole">
+		<result column="id" property="id" />
+		<result column="staffid" property="staffid" />
+		<result column="roleid" property="roleid" />
+	</resultMap>
+
+	<insert id="insert" parameterType="StaffRole">
+		insert into tf_s_staff_role(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="staffid != null">
+				staffid,
+			</if>
+			<if test="roleid != null">
+				roleid,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="staffid != null">
+				#{staffid},
+			</if>
+			<if test="roleid != null">
+				#{roleid},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="StaffRole">
+		delete from tf_s_staff_role
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="staffid != null">
+				and staffid = #{staffid}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="StaffRole">
+		update tf_s_staff_role
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="staffid != null">
+				staffid = #{staffid},
+			</if>
+			<if test="roleid != null">
+				roleid = #{roleid},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_staff_role
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="staffid != null">
+				and staffid = #{staffid}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_staff_role
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="staffid != null">
+				and staffid = #{staffid}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_staff_role
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="staffid != null">
+				and staffid = #{staffid}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_staff_role
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="staffid != null">
+				and staffid = #{staffid}
+			</if>
+			<if test="roleid != null">
+				and roleid = #{roleid}
+			</if>
+		</trim>
+	</select>
+
+	<!-- StaffRole管理 end -->
+</mapper>

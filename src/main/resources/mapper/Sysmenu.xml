@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SysmenuMapper">
+	<!-- Sysmenu管理 start -->
+	<resultMap id="BaseResultMap" type="Sysmenu">
+		<result column="id" property="id" />
+		<result column="rightcode" property="rightcode" />
+		<result column="parentid" property="parentid" />
+		<result column="dyviewid" property="dyviewid" />
+		<result column="menutext" property="menutext" />
+		<result column="url" property="url" />
+		<result column="orderno" property="orderno" />
+		<result column="iconcls" property="iconcls" />
+		<result column="icon" property="icon" />
+		<result column="markurl" property="markurl" />
+		<result column="status" property="status" />
+		<result column="hascode" property="hascode" />
+		<result column="code" property="code" />
+		<result column="urltype" property="urltype" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Sysmenu">
+		insert into tf_s_sysmenu(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="rightcode != null">
+				rightcode,
+			</if>
+			<if test="parentid != null">
+				parentid,
+			</if>
+			<if test="dyviewid != null">
+				dyviewid,
+			</if>
+			<if test="menutext != null">
+				menutext,
+			</if>
+			<if test="url != null">
+				url,
+			</if>
+			<if test="orderno != null">
+				orderno,
+			</if>
+			<if test="iconcls != null">
+				iconcls,
+			</if>
+			<if test="icon != null">
+				icon,
+			</if>
+			<if test="markurl != null">
+				markurl,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="hascode != null">
+				hascode,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="urltype != null">
+				urltype,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="rightcode != null">
+				#{rightcode},
+			</if>
+			<if test="parentid != null">
+				#{parentid},
+			</if>
+			<if test="dyviewid != null">
+				#{dyviewid},
+			</if>
+			<if test="menutext != null">
+				#{menutext},
+			</if>
+			<if test="url != null">
+				#{url},
+			</if>
+			<if test="orderno != null">
+				#{orderno},
+			</if>
+			<if test="iconcls != null">
+				#{iconcls},
+			</if>
+			<if test="icon != null">
+				#{icon},
+			</if>
+			<if test="markurl != null">
+				#{markurl},
+			</if>
+			<if test="status != null">
+				#{status},
+			</if>
+			<if test="hascode != null">
+				#{hascode},
+			</if>
+			<if test="code != null">
+				#{code},
+			</if>
+			<if test="urltype != null">
+				#{urltype},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="Sysmenu">
+		delete from tf_s_sysmenu
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentid != null">
+				and parentid = #{parentid}
+			</if>
+			<if test="dyviewid != null">
+				and dyviewid = #{dyviewid}
+			</if>
+			<if test="menutext != null">
+				and menutext = #{menutext}
+			</if>
+			<if test="url != null">
+				and url = #{url}
+			</if>
+			<if test="orderno != null">
+				and orderno = #{orderno}
+			</if>
+			<if test="iconcls != null">
+				and iconcls = #{iconcls}
+			</if>
+			<if test="icon != null">
+				and icon = #{icon}
+			</if>
+			<if test="markurl != null">
+				and markurl = #{markurl}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="hascode != null">
+				and hascode = #{hascode}
+			</if>
+			<if test="code != null">
+				and code = #{code}
+			</if>
+			<if test="urltype != null">
+				and urltype = #{urltype}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="Sysmenu">
+		update tf_s_sysmenu
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="rightcode != null">
+				rightcode = #{rightcode},
+			</if>
+			<if test="parentid != null">
+				parentid = #{parentid},
+			</if>
+			<if test="dyviewid != null">
+				dyviewid = #{dyviewid},
+			</if>
+			<if test="menutext != null">
+				menutext = #{menutext},
+			</if>
+			<if test="url != null">
+				url = #{url},
+			</if>
+			<if test="orderno != null">
+				orderno = #{orderno},
+			</if>
+			<if test="iconcls != null">
+				iconcls = #{iconcls},
+			</if>
+			<if test="icon != null">
+				icon = #{icon},
+			</if>
+			<if test="markurl != null">
+				markurl = #{markurl},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="hascode != null">
+				hascode = #{hascode},
+			</if>
+			<if test="code != null">
+				code = #{code},
+			</if>
+			<if test="urltype != null">
+				urltype = #{urltype},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_sysmenu
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentid != null">
+				and parentid = #{parentid}
+			</if>
+			<if test="dyviewid != null">
+				and dyviewid = #{dyviewid}
+			</if>
+			<if test="menutext != null">
+				and menutext = #{menutext}
+			</if>
+			<if test="url != null">
+				and url = #{url}
+			</if>
+			<if test="orderno != null">
+				and orderno = #{orderno}
+			</if>
+			<if test="iconcls != null">
+				and iconcls = #{iconcls}
+			</if>
+			<if test="icon != null">
+				and icon = #{icon}
+			</if>
+			<if test="markurl != null">
+				and markurl = #{markurl}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="hascode != null">
+				and hascode = #{hascode}
+			</if>
+			<if test="code != null">
+				and code = #{code}
+			</if>
+			<if test="urltype != null">
+				and urltype = #{urltype}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_sysmenu
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentid != null">
+				and parentid = #{parentid}
+			</if>
+			<if test="dyviewid != null">
+				and dyviewid = #{dyviewid}
+			</if>
+			<if test="menutext != null">
+				and menutext = #{menutext}
+			</if>
+			<if test="url != null">
+				and url = #{url}
+			</if>
+			<if test="orderno != null">
+				and orderno = #{orderno}
+			</if>
+			<if test="iconcls != null">
+				and iconcls = #{iconcls}
+			</if>
+			<if test="icon != null">
+				and icon = #{icon}
+			</if>
+			<if test="markurl != null">
+				and markurl = #{markurl}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="hascode != null">
+				and hascode = #{hascode}
+			</if>
+			<if test="code != null">
+				and code = #{code}
+			</if>
+			<if test="urltype != null">
+				and urltype = #{urltype}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_sysmenu
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentid != null">
+				and parentid = #{parentid}
+			</if>
+			<if test="dyviewid != null">
+				and dyviewid = #{dyviewid}
+			</if>
+			<if test="menutext != null">
+				and menutext = #{menutext}
+			</if>
+			<if test="url != null">
+				and url = #{url}
+			</if>
+			<if test="orderno != null">
+				and orderno = #{orderno}
+			</if>
+			<if test="iconcls != null">
+				and iconcls = #{iconcls}
+			</if>
+			<if test="icon != null">
+				and icon = #{icon}
+			</if>
+			<if test="markurl != null">
+				and markurl = #{markurl}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="hascode != null">
+				and hascode = #{hascode}
+			</if>
+			<if test="code != null">
+				and code = #{code}
+			</if>
+			<if test="urltype != null">
+				and urltype = #{urltype}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_sysmenu
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentid != null">
+				and parentid = #{parentid}
+			</if>
+			<if test="dyviewid != null">
+				and dyviewid = #{dyviewid}
+			</if>
+			<if test="menutext != null">
+				and menutext = #{menutext}
+			</if>
+			<if test="url != null">
+				and url = #{url}
+			</if>
+			<if test="orderno != null">
+				and orderno = #{orderno}
+			</if>
+			<if test="iconcls != null">
+				and iconcls = #{iconcls}
+			</if>
+			<if test="icon != null">
+				and icon = #{icon}
+			</if>
+			<if test="markurl != null">
+				and markurl = #{markurl}
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+			<if test="hascode != null">
+				and hascode = #{hascode}
+			</if>
+			<if test="code != null">
+				and code = #{code}
+			</if>
+			<if test="urltype != null">
+				and urltype = #{urltype}
+			</if>
+		</trim>
+	</select>
+	
+	<select id="findMenuByStaffId" resultMap="BaseResultMap">
+		select distinct t.* from tf_s_sysmenu t
+		inner join tf_s_sysright ssr on ssr.menuid = t.id
+		INNER JOIN tf_s_role_right rr ON rr.rightcode=ssr.rightcode
+		INNER JOIN tf_s_staff_role sr ON sr.roleid = rr.roleid
+		where sr.staffid=#{staffid}
+		and t.status=1
+		order by t.orderno
+	</select>
+	
+	<select id="listParnetMenu" resultMap="BaseResultMap">
+		select * from tf_s_sysmenu where status=1 and parentid is null
+	</select>
+
+	<!-- Sysmenu管理 end -->
+</mapper>

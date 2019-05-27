@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SysrightMapper">
+	<!-- Sysright管理 start -->
+	<resultMap id="BaseResultMap" type="Sysright">
+		<result column="rightcode" property="rightcode" />
+		<result column="parentrightcode" property="parentrightcode" />
+		<result column="rightname" property="rightname" />
+		<result column="righttype" property="righttype" />
+		<result column="rightdesc" property="rightdesc" />
+		<result column="showorder" property="showorder" />
+		<result column="ownersystem" property="ownersystem" />
+		<result column="menuid" property="menuid" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Sysright">
+		insert into tf_s_sysright(
+		<trim suffixOverrides=",">
+			<if test="rightcode != null">
+				rightcode,
+			</if>
+			<if test="parentrightcode != null">
+				parentrightcode,
+			</if>
+			<if test="rightname != null">
+				rightname,
+			</if>
+			<if test="righttype != null">
+				righttype,
+			</if>
+			<if test="rightdesc != null">
+				rightdesc,
+			</if>
+			<if test="showorder != null">
+				showorder,
+			</if>
+			<if test="ownersystem != null">
+				ownersystem,
+			</if>
+			<if test="menuid != null">
+				menuid,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="rightcode != null">
+				#{rightcode},
+			</if>
+			<if test="parentrightcode != null">
+				#{parentrightcode},
+			</if>
+			<if test="rightname != null">
+				#{rightname},
+			</if>
+			<if test="righttype != null">
+				#{righttype},
+			</if>
+			<if test="rightdesc != null">
+				#{rightdesc},
+			</if>
+			<if test="showorder != null">
+				#{showorder},
+			</if>
+			<if test="ownersystem != null">
+				#{ownersystem},
+			</if>
+			<if test="menuid != null">
+				#{menuid},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="Sysright">
+		delete from tf_s_sysright
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentrightcode != null">
+				and parentrightcode = #{parentrightcode}
+			</if>
+			<if test="rightname != null">
+				and rightname = #{rightname}
+			</if>
+			<if test="righttype != null">
+				and righttype = #{righttype}
+			</if>
+			<if test="rightdesc != null">
+				and rightdesc = #{rightdesc}
+			</if>
+			<if test="showorder != null">
+				and showorder = #{showorder}
+			</if>
+			<if test="ownersystem != null">
+				and ownersystem = #{ownersystem}
+			</if>
+			<if test="menuid != null">
+				and menuid = #{menuid}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="Sysright">
+		update tf_s_sysright
+		<trim prefix="set" suffixOverrides=",">
+			<if test="parentrightcode != null">
+				parentrightcode = #{parentrightcode},
+			</if>
+			<if test="rightname != null">
+				rightname = #{rightname},
+			</if>
+			<if test="righttype != null">
+				righttype = #{righttype},
+			</if>
+			<if test="rightdesc != null">
+				rightdesc = #{rightdesc},
+			</if>
+			<if test="showorder != null">
+				showorder = #{showorder},
+			</if>
+			<if test="ownersystem != null">
+				ownersystem = #{ownersystem},
+			</if>
+			<if test="menuid != null">
+				menuid = #{menuid},
+			</if>
+		</trim>
+		<where>rightcode=#{rightcode}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_sysright
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentrightcode != null">
+				and parentrightcode = #{parentrightcode}
+			</if>
+			<if test="rightname != null">
+				and rightname = #{rightname}
+			</if>
+			<if test="righttype != null">
+				and righttype = #{righttype}
+			</if>
+			<if test="rightdesc != null">
+				and rightdesc = #{rightdesc}
+			</if>
+			<if test="showorder != null">
+				and showorder = #{showorder}
+			</if>
+			<if test="ownersystem != null">
+				and ownersystem = #{ownersystem}
+			</if>
+			<if test="menuid != null">
+				and menuid = #{menuid}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_sysright
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentrightcode != null">
+				and parentrightcode = #{parentrightcode}
+			</if>
+			<if test="rightname != null">
+				and rightname = #{rightname}
+			</if>
+			<if test="righttype != null">
+				and righttype = #{righttype}
+			</if>
+			<if test="rightdesc != null">
+				and rightdesc = #{rightdesc}
+			</if>
+			<if test="showorder != null">
+				and showorder = #{showorder}
+			</if>
+			<if test="ownersystem != null">
+				and ownersystem = #{ownersystem}
+			</if>
+			<if test="menuid != null">
+				and menuid = #{menuid}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_sysright
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentrightcode != null">
+				and parentrightcode = #{parentrightcode}
+			</if>
+			<if test="rightname != null">
+				and rightname = #{rightname}
+			</if>
+			<if test="righttype != null">
+				and righttype = #{righttype}
+			</if>
+			<if test="rightdesc != null">
+				and rightdesc = #{rightdesc}
+			</if>
+			<if test="showorder != null">
+				and showorder = #{showorder}
+			</if>
+			<if test="ownersystem != null">
+				and ownersystem = #{ownersystem}
+			</if>
+			<if test="menuid != null">
+				and menuid = #{menuid}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_sysright
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="parentrightcode != null">
+				and parentrightcode = #{parentrightcode}
+			</if>
+			<if test="rightname != null">
+				and rightname = #{rightname}
+			</if>
+			<if test="righttype != null">
+				and righttype = #{righttype}
+			</if>
+			<if test="rightdesc != null">
+				and rightdesc = #{rightdesc}
+			</if>
+			<if test="showorder != null">
+				and showorder = #{showorder}
+			</if>
+			<if test="ownersystem != null">
+				and ownersystem = #{ownersystem}
+			</if>
+			<if test="menuid != null">
+				and menuid = #{menuid}
+			</if>
+		</trim>
+	</select>
+
+	<select id="findSysrightListByRoleId" resultMap="BaseResultMap">
+		select distinct
+		s.* from tf_s_sysright s
+		where s.rightcode in (select rr.rightcode from
+		tf_s_role_right rr where
+		rr.roleid=#{id})
+		order by
+		s.rightcode,s.showorder
+	</select>
+
+	<select id="findSysrightListByStaffId" resultMap="BaseResultMap">
+		select distinct
+		s.* from tf_s_sysright s
+		left join tf_s_role_right rr on
+		rr.rightcode =
+		s.rightcode
+		left join tf_s_staff_role sr on
+		sr.roleid=rr.roleid
+		where
+		sr.staffid=#{staffid}
+		order by
+		s.showorder,s.rightcode
+	</select>
+
+	<select id="findSysrightListByRights" resultMap="BaseResultMap">
+		select * from tf_s_sysright
+		where rightcode in
+		<foreach collection="list" open="(" item="item" separator=","
+			close=")">
+			#{item.rightcode}
+		</foreach>
+	</select>
+
+	<select id="listParentRight" resultMap="BaseResultMap">
+		select * from tf_s_sysright where parentrightcode is null or parentrightcode
+		= ''
+	</select>
+	
+	<select id="listByUserName" resultMap="BaseResultMap">
+	    select distinct sr.* from sg_s_sysright sr
+	    left join sg_s_role_right rr on rr.rightcode=sr.rightcode
+	    left join sg_s_staff_role str on str.id=rr.roleid
+	    left join sg_s_staff s on s.id = str.staffid
+	    where s.loginname=#{entity}
+	</select>
+
+	<!-- Sysright管理 end -->
+</mapper>

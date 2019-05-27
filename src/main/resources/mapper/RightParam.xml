@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RightParamMapper">
+	<!-- RightParam管理 start -->
+	<resultMap id="BaseResultMap" type="RightParam">
+		<result column="id" property="id" />
+		<result column="rightcode" property="rightcode" />
+		<result column="paramkey" property="paramkey" />
+		<result column="paramvalue" property="paramvalue" />
+		<result column="operate" property="operate" />
+	</resultMap>
+
+	<insert id="insert" parameterType="RightParam">
+		insert into tf_s_right_param(
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="rightcode != null">
+				rightcode,
+			</if>
+			<if test="paramkey != null">
+				paramkey,
+			</if>
+			<if test="paramvalue != null">
+				paramvalue,
+			</if>
+			<if test="operate != null">
+				operate,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="rightcode != null">
+				#{rightcode},
+			</if>
+			<if test="paramkey != null">
+				#{paramkey},
+			</if>
+			<if test="paramvalue != null">
+				#{paramvalue},
+			</if>
+			<if test="operate != null">
+				#{operate},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="delete" parameterType="RightParam">
+		delete from tf_s_right_param
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="paramkey != null">
+				and paramkey = #{paramkey}
+			</if>
+			<if test="paramvalue != null">
+				and paramvalue = #{paramvalue}
+			</if>
+			<if test="operate != null">
+				and operate = #{operate}
+			</if>
+		</trim>
+	</update>
+
+	<update id="update" parameterType="RightParam">
+		update tf_s_right_param
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null">
+				id = #{id},
+			</if>
+			<if test="rightcode != null">
+				rightcode = #{rightcode},
+			</if>
+			<if test="paramkey != null">
+				paramkey = #{paramkey},
+			</if>
+			<if test="paramvalue != null">
+				paramvalue = #{paramvalue},
+			</if>
+			<if test="operate != null">
+				operate = #{operate},
+			</if>
+		</trim>
+		<where>id=${id}</where>
+	</update>
+
+	<select id="getByParam" parameterType="String" resultMap="BaseResultMap">
+		select * from tf_s_right_param
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="paramkey != null">
+				and paramkey = #{paramkey}
+			</if>
+			<if test="paramvalue != null">
+				and paramvalue = #{paramvalue}
+			</if>
+			<if test="operate != null">
+				and operate = #{operate}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryList" resultMap="BaseResultMap">
+		select * from tf_s_right_param
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="paramkey != null">
+				and paramkey = #{paramkey}
+			</if>
+			<if test="paramvalue != null">
+				and paramvalue = #{paramvalue}
+			</if>
+			<if test="operate != null">
+				and operate = #{operate}
+			</if>
+		</trim>
+	</select>
+
+	<select id="queryDataGrid" resultMap="BaseResultMap">
+		select * from tf_s_right_param
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="paramkey != null">
+				and paramkey = #{paramkey}
+			</if>
+			<if test="paramvalue != null">
+				and paramvalue = #{paramvalue}
+			</if>
+			<if test="operate != null">
+				and operate = #{operate}
+			</if>
+		</trim>
+		<if test="order != null">
+			order by ${order}
+		</if>
+		limit ${start},${rows}
+	</select>
+
+	<select id="queryDataGridCount" resultType="int">
+		select count(1) from tf_s_right_param
+		<trim prefix="where" prefixOverrides="and | AND | or | OR">
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="rightcode != null">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="paramkey != null">
+				and paramkey = #{paramkey}
+			</if>
+			<if test="paramvalue != null">
+				and paramvalue = #{paramvalue}
+			</if>
+			<if test="operate != null">
+				and operate = #{operate}
+			</if>
+		</trim>
+	</select>
+
+	<!-- RightParam管理 end -->
+</mapper>
